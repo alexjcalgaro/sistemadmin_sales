@@ -1,24 +1,15 @@
-# README
+Classroom of rails Admin.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Development of a complete administrative system using Rails Admin.
+* A platform will be created so that a company can manage the sales of its sales representatives.
+* It will have two types of user: manager and seller.
+** The seller can enter with new sales, customers and see their commissions.
+** The manager can create products, discounts and other users.
 
-Things you may want to cover:
+Gens Uses:
+Authentication using Devise.
+Authorization using CanCanCan.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Features:
+* Filter records based on who owns them.
+* Upload photos, customize the appearance and export data to PDF using graphics.
