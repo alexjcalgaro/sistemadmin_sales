@@ -23,6 +23,124 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
+
+  ##Mostra os campos os campos que são importante na tela
+  #Model venda.
+  config.model Sale do
+    #Campos para cadastro
+    create do
+      field :client
+      field :sale_date
+      field :discount
+      field :notes
+      field :product_quantities
+
+      #pega o id do user logado para não precisar ficar selecionando ele mesmo.
+      field :user_id, :hidden do
+        default_value do
+          bindings[:view]._current_user.id
+        end
+      end
+    end
+
+    #Campos para edição
+    edit do
+      field :client
+      field :sale_date
+      field :discount
+      field :notes
+      field :product_quantities
+
+      #pega o id do user logado para não precisar ficar selecionando ele mesmo.
+      field :user_id, :hidden do
+        default_value do
+          bindings[:view]._current_user.id
+        end
+      end
+    end
+  end
+
+  #Model Cliente
+  config.model Client do
+    #Campos para o cadastro
+    create do
+      field :name
+      field :company_name
+      field :document
+      field :email
+      field :phone
+      field :notes
+      field :status
+      field :address
+
+      #pega o id do user logado para não precisar ficar selecionando ele mesmo.
+      field :user_id, :hidden do
+        default_value do
+          bindings[:view]._current_user.id
+        end
+      end
+    end
+
+    #Campos para a Ediação
+    edit do
+      field :name
+      field :company_name
+      field :document
+      field :email
+      field :phone
+      field :notes
+      field :status
+      field :address
+
+      #pega o id do user logado para não precisar ficar selecionando ele mesmo.
+      field :user_id, :hidden do
+        default_value do
+          bindings[:view]._current_user.id
+        end
+      end
+    end
+
+    #Campos para a listagem
+    list do
+      field :name
+      field :company_name
+      field :document
+      field :email
+      field :phone
+      field :notes
+      field :status
+      field :address
+    end
+  end
+
+  #Tira do menu lateral o menu Quntidade de Produto pois a mesma n faz sentido
+  #nessa menu, apenas na Venda
+  config.model ProductQuantity do
+    visible false
+  end
+
+  #Tira do menu lateral o menu endereço pois o mesmo n faz sentido
+  #nessa menu, apenas no cadastro
+  config.model Address do
+    visible false
+  end
+
+  #Mostra o menu apenas quando estiver lançando uma venda e mostrando apenas
+  #os campos que fazem sentidos.
+  config.model ProductQuantity do
+    edit do
+      field :product
+      field :quantity
+
+      #pega o id do user logado para não precisar ficar selecionando ele mesmo.
+      field :user_id, :hidden do
+        default_value do
+          bindings[:view]._current_user.id
+        end
+      end
+    end
+  end
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
