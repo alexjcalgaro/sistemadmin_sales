@@ -1,5 +1,15 @@
 RailsAdmin.config do |config|
 
+  config.main_app_name = ["Representantes Comerciais", ""]
+
+  config.navigation_static_links = {
+  'Github' => 'https://github.com/alexjcalgaro',
+  'Facebook' => 'https://www.facebook.com/alexjcalgaro',
+  'Linkedin' => 'https://www.linkedin.com/in/alexjcalgaro'
+}
+
+config.navigation_static_label = "Lins Úteis"
+
   ### Popular gems integration
 
   ## == Devise ==
@@ -23,10 +33,26 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
+  config.model User do
+    #Define um Icone para o menu
+    navigation_icon 'fa fa-user-circle'
+  end
+
+  config.model Discount do
+    #Define um Icone para o menu
+    navigation_icon 'fa fa-calculator'
+  end
+
+  config.model Comission do
+    #Define um Icone para o menu
+    navigation_icon 'fa fa-handshake-o'
+  end
 
   ##Mostra os campos os campos que são importante na tela
   #Model venda.
   config.model Sale do
+    #Define um Icone para o menu
+    navigation_icon 'fa fa-money'
     #Campos para cadastro
     create do
       field :client
@@ -62,6 +88,8 @@ RailsAdmin.config do |config|
 
   #Model Cliente
   config.model Client do
+    #Define um Icone para o menu
+    navigation_icon 'fa fa-user'
     #Campos para o cadastro
     create do
       field :name
@@ -115,6 +143,8 @@ RailsAdmin.config do |config|
 
   #Model venda.
   config.model Product do
+    #Define um Icone para o menu
+    navigation_icon 'fa fa-briefcase'
     #Campos para cadastro
     create do
       field :name
@@ -141,6 +171,32 @@ RailsAdmin.config do |config|
 
   #Tira do menu lateral o menu endereço pois o mesmo n faz sentido
   #nessa menu, apenas no cadastro
+  config.model Address do
+    visible false
+  end
+
+  config.model Discount do
+    parent Product
+  end
+
+  config.model Sale do
+    parent User
+    weight -2
+  end
+
+  config.model Comission do
+    parent User
+    weight -1
+  end
+
+  config.model Client do
+    parent User
+  end
+
+  config.model ProductQuantity do
+    visible false
+  end
+
   config.model Address do
     visible false
   end
