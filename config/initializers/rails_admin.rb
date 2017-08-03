@@ -113,6 +113,26 @@ RailsAdmin.config do |config|
     end
   end
 
+  #Model venda.
+  config.model Product do
+    #Campos para cadastro
+    create do
+      field :name
+      field :description
+      field :status
+      field :price
+      field :photo
+    end
+
+    edit do
+      field :name
+      field :description
+      field :status
+      field :price
+      field :photo
+    end
+  end
+
   #Tira do menu lateral o menu Quntidade de Produto pois a mesma n faz sentido
   #nessa menu, apenas na Venda
   config.model ProductQuantity do
