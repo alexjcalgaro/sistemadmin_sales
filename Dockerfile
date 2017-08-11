@@ -3,7 +3,7 @@ FROM ruby:2.3-slim
 
 # Instala as nossas dependencias
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
-      build-essential nodejs libpq-dev
+      build-essential nodejs libpq-dev && apt-get install -y git
 
 # Seta nosso path
 ENV INSTALL_PATH /usr/src/app
@@ -18,7 +18,6 @@ WORKDIR $INSTALL_PATH
 COPY Gemfile ./
 
 # Instala as Gems
-RUN gem install bundler
 RUN bundle install
 
 # Copia nosso código para dentro do container

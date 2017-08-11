@@ -25,7 +25,8 @@ gem 'rails_admin'
 gem 'devise'
 gem 'cancancan', '~> 1.15.0'
 gem 'carrierwave'
-gem 'rails_admin_rollincode', '~> 1.0'
+
+gem 'rails_admin_rollincode', :git => 'https://github.com/alexjcalgaro/rollincode_custom.git'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
