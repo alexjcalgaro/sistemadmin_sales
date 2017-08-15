@@ -1,14 +1,7 @@
 RailsAdmin.config do |config|
 
-  config.main_app_name = ["Representantes Comerciais", ""]
-
-  config.navigation_static_links = {
-  'Github' => 'https://github.com/alexjcalgaro',
-  'Facebook' => 'https://www.facebook.com/alexjcalgaro',
-  'Linkedin' => 'https://www.linkedin.com/in/alexjcalgaro'
-}
-
-config.navigation_static_label = "Lins Úteis"
+  require Rails.root.join('lib', 'rails_admin', 'rails_admin_pdf.rb')
+  RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Pdf)
 
   ### Popular gems integration
 
@@ -32,6 +25,15 @@ config.navigation_static_label = "Lins Úteis"
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
+
+  config.navigation_static_links = {
+  'Github' => 'https://github.com/alexjcalgaro',
+  'Facebook' => 'https://www.facebook.com/alexjcalgaro',
+  'Linkedin' => 'https://www.linkedin.com/in/alexjcalgaro'
+  }
+  config.navigation_static_label = "Lins Úteis"
+
+  config.main_app_name = ["Representantes Comerciais", ""]
 
   config.model User do
     #Define um Icone para o menu
@@ -227,7 +229,9 @@ config.navigation_static_label = "Lins Úteis"
     edit
     delete
     show_in_app
-
+    pdf do
+      only User
+    end
     ## With an audit adapter, you can add:
     # history_index
     # history_show

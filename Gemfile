@@ -28,6 +28,11 @@ gem 'carrierwave'
 
 gem 'rails_admin_rollincode', :git => 'https://github.com/alexjcalgaro/rollincode_custom.git'
 
+# Gem para gerar os pdfs
+gem 'prawn-rails'
+# Gem para gerar os gráficos
+gem 'gruff'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

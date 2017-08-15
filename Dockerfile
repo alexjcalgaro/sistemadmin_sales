@@ -3,7 +3,8 @@ FROM ruby:2.3-slim
 
 # Instala as nossas dependencias
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
-      build-essential nodejs libpq-dev && apt-get install -y git
+      build-essential nodejs libpq-dev && apt-get install -y git \
+      && apt-get install imagemagick -y libmagickcore-dev -y libmagickwand-dev -y
 
 # Seta nosso path
 ENV INSTALL_PATH /usr/src/app
